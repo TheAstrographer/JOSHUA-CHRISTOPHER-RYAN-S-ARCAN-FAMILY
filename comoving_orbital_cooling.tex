@@ -1,0 +1,43 @@
+Topological Stabilization by Comoving Orbital Cooling
+
+The topological stabilization mechanism of the Arcan(\(\tau\)) architecture does not rely on any discrete runtime intervention. Instead, the state coordinate smoothly falls back into place at the thermodynamic origin through the natural action of comoving orbital cooling. By establishing the decoding trajectory as a continuous spiraling attractor on a compact manifold, parameter energy is permitted to dissipate gracefully. What would ordinarily appear as a catastrophic gradient explosion or an abrupt informational drop-out is thereby converted into a bounded, friction-free passage along a smooth adiabatic valley.
+
+1. Absence of Discrete Runtime Intervention
+
+Conventional stabilization techniques in autoregressive models typically insert explicit corrective operations at the moment of collapse: hard clipping of logits, forced temperature floors, gradient-norm interventions, or external resets of the sampling state. Each of these is a discrete runtime event—an interruption of the generative flow that must be scheduled, monitored, and executed by additional control logic.  
+
+In the Arcan framework no such interruption occurs. The temperature schedule \(\tau(\lambda)=2\pi(1-\lambda)\) and its angular lift remain continuous on the half-open interval \([0,1)\). The only discontinuity is the purely topological identification that accompanies the completion of a full turn on the compact manifold; it is not an engineered intervention but a geometric consequence of the manifold’s own periodicity. The generative process itself never pauses, inspects, or corrects; it simply follows the orbital cooling law.
+
+2. Smooth Fall-Back via Comoving Orbital Cooling
+
+The relevant state coordinate is the winding coordinate
+
+\[
+\phi_{\mathrm{wind}}(\lambda,n)=2\pi(1-\lambda)+n\delta.
+\]
+
+As the thermodynamic orbit cools, \(\tau(\lambda)\) contracts toward zero and, because \(\phi_{\mathrm{wind}}\) contains \(\tau(\lambda)\) as its leading term, the winding coordinate is drawn inward with it. The return to a neighbourhood of the origin is therefore not imposed from outside; it is the continuous geometric endpoint of the same orbital cooling that collapses the radial temperature. The residual \(\delta\) rides along as a comoving passenger, advancing by a fixed increment at each cycle yet remaining bounded relative to the thermodynamic scale. Consequently the coordinate falls back into place smoothly, carrying only an infinitesimal phase memory of prior cycles.
+
+3. Continuous Spiraling Attractor on a Compact Manifold
+
+The trajectory is realized first as an Archimedean spiral in the plane and then as a closed path on the unit sphere \(S^2\). Both spaces are compact once the radial coordinate is understood projectively through the temperature identification. On this compact manifold the cooling law defines a continuous spiraling attractor: every point on the trajectory is drawn toward the thermodynamic origin by the monotonic decrease of \(\tau(\lambda)\). Because the manifold is compact, the attractor cannot escape to infinity; the orbit remains bounded for all time. The residual phase offset merely rotates successive windings, producing a non-periodic yet still confined family of spirals—the geometric signature of a comoving rather than a divergent process.
+
+4. Graceful Dissipation of Parameter Energy
+
+In the language of the logit landscape, the “parameter energy” associated with non-dominant modes is precisely the residual probability mass carried by all tokens other than the highest-logit permitted token \(v^*\). As \(\tau\to0^+\) this mass is dissipated exponentially:
+
+\[
+\sum_{v\neq v^*}P_{\tau}(v)\;\le\;|V|\,e^{-\Delta_{\min}/\tau}.
+\]
+
+The dissipation is graceful because it is adiabatic with respect to the slow orbital cooling schedule. No sudden truncation or external damping is required; the spectral gap \(\Delta_{\min}\) already present in the steered logits is simply amplified by the vanishing temperature. Energy therefore leaves the non-dominant modes continuously and without shock.
+
+5. Conversion of Catastrophic Behaviour into an Adiabatic Valley
+
+Traditional temperature annealing or gradient-based sampling can produce two pathological regimes near collapse: (i) an explosive growth of gradient norms when the softmax becomes sharply peaked, or (ii) an abrupt informational drop-out when probability mass is forcibly zeroed. Both are artifacts of discontinuous or poorly conditioned interventions.
+
+Under comoving orbital cooling these pathologies are replaced by a smooth adiabatic valley. The trajectory follows a continuously differentiable path on the compact manifold; the curvature remains bounded; the spectral gap widens monotonically; and the residual mass vanishes at a controlled exponential rate. The passage through the thermodynamic origin is therefore friction-free: the state coordinate arrives, is topologically identified, and departs on the next cycle without ever encountering a singularity in the generative dynamics.
+
+6. Closing Statement
+
+Topological stabilization in the Arcan architecture is an intrinsic geometric property of comoving orbital cooling on a compact manifold. The state coordinate falls back into place at the thermodynamic origin not by discrete intervention but by the continuous contraction of the temperature schedule itself. Parameter energy dissipates along a spiraling attractor, converting the classical risks of gradient explosion and informational collapse into a bounded, adiabatic transit. The residual phase offset preserves long-term memory while the three negations continue to guarantee that the entire process remains non-reflective, non-supervised, and non-agentic. The result is a decoding dynamics whose stability is topological rather than procedural—an orbit that returns, cycle after cycle, without ever needing to be corrected.
